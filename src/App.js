@@ -1,5 +1,13 @@
+//REACT IMPORTS
 import './App.css';
 import React, { useState, useRef } from 'react';
+
+//USER IMPORTS
+import TodoItem from './components/TodoItem';
+
+//MATERIALUI IMPORTS
+import Container from '@mui/material/Container';
+import Box from '@mui/material/Box';
 
 function App2() {
   return (
@@ -12,6 +20,7 @@ function App2() {
 const App = () => {
 
     const [name, setname] = React.useState('Valor')
+    
     React.useEffect(()=>{
       console.log('useEffect com dependecias vazias')
     }, [])
@@ -51,13 +60,14 @@ const App = () => {
         <ul>
           {
             data.map((item, index)  =>(
-              <li key={index}>
-                {item}
-              </li>
+              <TodoItem name={item} key={index}></TodoItem>
             ))
           }
         </ul>
       </div>
+      <Container maxWidth="xl">
+        <Box sx={{ bgcolor: '#ec0000', height: '120px', width: '100%', alignSelf: 'center' }} />
+      </Container>
     </div>
   )
 }
