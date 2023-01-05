@@ -14,16 +14,34 @@ import HomeIcon from '@mui/icons-material/Home';
 import RadioIcon from '@mui/icons-material/Radio';
 import YouTubeIcon from '@mui/icons-material/YouTube';
 
+import Collapse from '@mui/material/Collapse';
+import InboxIcon from '@mui/icons-material/MoveToInbox';
+
+import ExpandLess from '@mui/icons-material/ExpandLess';
+import ExpandMore from '@mui/icons-material/ExpandMore';
+
+import SlideshowIcon from '@mui/icons-material/Slideshow';
+import HistoryIcon from '@mui/icons-material/History';
+import VideoLibraryOutlinedIcon from '@mui/icons-material/VideoLibraryOutlined';
+import ScheduleOutlinedIcon from '@mui/icons-material/ScheduleOutlined';
+import MovieCreationOutlinedIcon from '@mui/icons-material/MovieCreationOutlined';
+import PlaylistPlayRoundedIcon from '@mui/icons-material/PlaylistPlayRounded';
+
 function Menu() {
+
+const [open, setOpen] = React.useState(false);
+
+const handleClick = () => {
+    setOpen(!open);
+};
 
   return (
     <Box
     sx={{
-        display: 'flex',
         '& > :not(style)': {
           m: 0,
           width: 250,
-          backgroundColor: '#0f0f0f'
+          backgroundColor: '#0f0f0f', //'#0f0f0f',
         },
       }}
     >
@@ -31,9 +49,9 @@ function Menu() {
             elevation={0}
             square
             sx={{
-                paddingLeft: '10px', 
-                maxHeight: '100%', 
-                overflow: 'auto',
+                paddingLeft: '10px',
+                height: 'calc(100vh - 60px)', //window.screen.height - window.innerWidth
+                overflowY: 'auto',
                 '&::-webkit-scrollbar': {
                     width: '10px'
                   },
@@ -46,14 +64,14 @@ function Menu() {
                   '&::-webkit-scrollbar-thumb': {
                     backgroundColor: '#808080',
                     borderRadius: '4px'
-                  }
+                  },
             }}
         >
             <nav aria-label="main mailbox folders">
                 <List
                       sx={{
                         width: '100%',
-                        maxWidth: 360,
+                        maxWidth: 260,
                         overflow: 'auto',
                         '& ul': { padding: 0 },
                       }}
@@ -102,8 +120,8 @@ function Menu() {
                         <ListItemButton 
                         sx={{borderRadius: '10px', backgroundColor: 'transparent',color: '#fff',
                             '&:hover': {backgroundColor: '#272727',color: '#fff',}}}>
-                        <ListItemIcon><HomeIcon sx={{color: '#fff'}}/></ListItemIcon>
-                        <ListItemText primary="Inicio" />
+                        <ListItemIcon><VideoLibraryOutlinedIcon sx={{color: '#fff'}}/></ListItemIcon>
+                        <ListItemText primary="Biblioteca" />
                         </ListItemButton>
                     </ListItem>
 
@@ -111,8 +129,8 @@ function Menu() {
                     <ListItemButton 
                     sx={{borderRadius: '10px', backgroundColor: 'transparent',color: '#fff',
                             '&:hover': {backgroundColor: '#272727',color: '#fff',}}}>
-                        <ListItemIcon><RadioIcon sx={{color: '#fff'}}/></ListItemIcon>
-                        <ListItemText primary="Shorts"/>
+                        <ListItemIcon><HistoryIcon sx={{color: '#fff'}}/></ListItemIcon>
+                        <ListItemText primary="Hisotórico"/>
                         </ListItemButton>
                     </ListItem>
 
@@ -120,10 +138,139 @@ function Menu() {
                     <ListItemButton 
                     sx={{borderRadius: '10px', backgroundColor: 'transparent',color: '#fff',
                             '&:hover': {backgroundColor: '#272727',color: '#fff',}}}>
-                        <ListItemIcon><YouTubeIcon sx={{color: '#fff'}}/></ListItemIcon>
-                        <ListItemText primary="Inscrições"/>
+                        <ListItemIcon><SlideshowIcon sx={{color: '#fff'}}/></ListItemIcon>
+                        <ListItemText primary="Seus videos"/>
                         </ListItemButton>
                     </ListItem>
+
+                    <ListItem disablePadding>
+                    <ListItemButton 
+                    sx={{borderRadius: '10px', backgroundColor: 'transparent',color: '#fff',
+                            '&:hover': {backgroundColor: '#272727',color: '#fff',}}}>
+                        <ListItemIcon><MovieCreationOutlinedIcon sx={{color: '#fff'}}/></ListItemIcon>
+                        <ListItemText primary="Seus filmes"/>
+                        </ListItemButton>
+                    </ListItem>
+
+                    <ListItem disablePadding>
+                    <ListItemButton 
+                    sx={{borderRadius: '10px', backgroundColor: 'transparent',color: '#fff',
+                            '&:hover': {backgroundColor: '#272727',color: '#fff',}}}>
+                        <ListItemIcon><ScheduleOutlinedIcon sx={{color: '#fff'}}/></ListItemIcon>
+                        <ListItemText primary="Assistir mais tarde"/>
+                        </ListItemButton>
+                    </ListItem>
+
+                    <Collapse in={open} timeout="auto" unmountOnExit>
+                        <List component="div" disablePadding>
+                            <ListItemButton 
+                            sx={{borderRadius: '10px', backgroundColor: 'transparent',color: '#fff',
+                            '&:hover': {backgroundColor: '#272727',color: '#fff',}}}>
+                                <ListItemIcon><PlaylistPlayRoundedIcon sx={{color: '#fff'}}/></ListItemIcon>
+                                <ListItemText primary="Playlists do usuario" />
+                            </ListItemButton>
+                            <ListItemButton 
+                            sx={{borderRadius: '10px', backgroundColor: 'transparent',color: '#fff',
+                            '&:hover': {backgroundColor: '#272727',color: '#fff',}}}>
+                                <ListItemIcon><PlaylistPlayRoundedIcon sx={{color: '#fff'}}/></ListItemIcon>
+                                <ListItemText primary="Playlists do usuario" />
+                            </ListItemButton>
+                            <ListItemButton 
+                            sx={{borderRadius: '10px', backgroundColor: 'transparent',color: '#fff',
+                            '&:hover': {backgroundColor: '#272727',color: '#fff',}}}>
+                                <ListItemIcon><PlaylistPlayRoundedIcon sx={{color: '#fff'}}/></ListItemIcon>
+                                <ListItemText primary="Playlists do usuario" />
+                            </ListItemButton>
+                            <ListItemButton 
+                            sx={{borderRadius: '10px', backgroundColor: 'transparent',color: '#fff',
+                            '&:hover': {backgroundColor: '#272727',color: '#fff',}}}>
+                                <ListItemIcon><PlaylistPlayRoundedIcon sx={{color: '#fff'}}/></ListItemIcon>
+                                <ListItemText primary="Playlists do usuario" />
+                            </ListItemButton>
+                            <ListItemButton 
+                            sx={{borderRadius: '10px', backgroundColor: 'transparent',color: '#fff',
+                            '&:hover': {backgroundColor: '#272727',color: '#fff',}}}>
+                                <ListItemIcon><PlaylistPlayRoundedIcon sx={{color: '#fff'}}/></ListItemIcon>
+                                <ListItemText primary="Playlists do usuario" />
+                            </ListItemButton>
+                            <ListItemButton 
+                            sx={{borderRadius: '10px', backgroundColor: 'transparent',color: '#fff',
+                            '&:hover': {backgroundColor: '#272727',color: '#fff',}}}>
+                                <ListItemIcon><PlaylistPlayRoundedIcon sx={{color: '#fff'}}/></ListItemIcon>
+                                <ListItemText primary="Playlists do usuario" />
+                            </ListItemButton>
+                            <ListItemButton 
+                            sx={{borderRadius: '10px', backgroundColor: 'transparent',color: '#fff',
+                            '&:hover': {backgroundColor: '#272727',color: '#fff',}}}>
+                                <ListItemIcon><PlaylistPlayRoundedIcon sx={{color: '#fff'}}/></ListItemIcon>
+                                <ListItemText primary="Playlists do usuario" />
+                            </ListItemButton>
+                            <ListItemButton 
+                            sx={{borderRadius: '10px', backgroundColor: 'transparent',color: '#fff',
+                            '&:hover': {backgroundColor: '#272727',color: '#fff',}}}>
+                                <ListItemIcon><PlaylistPlayRoundedIcon sx={{color: '#fff'}}/></ListItemIcon>
+                                <ListItemText primary="Playlists do usuario" />
+                            </ListItemButton>
+                            <ListItemButton 
+                            sx={{borderRadius: '10px', backgroundColor: 'transparent',color: '#fff',
+                            '&:hover': {backgroundColor: '#272727',color: '#fff',}}}>
+                                <ListItemIcon><PlaylistPlayRoundedIcon sx={{color: '#fff'}}/></ListItemIcon>
+                                <ListItemText primary="Playlists do usuario" />
+                            </ListItemButton>
+                            <ListItemButton 
+                            sx={{borderRadius: '10px', backgroundColor: 'transparent',color: '#fff',
+                            '&:hover': {backgroundColor: '#272727',color: '#fff',}}}>
+                                <ListItemIcon><PlaylistPlayRoundedIcon sx={{color: '#fff'}}/></ListItemIcon>
+                                <ListItemText primary="Playlists do usuario" />
+                            </ListItemButton>
+                            <ListItemButton 
+                            sx={{borderRadius: '10px', backgroundColor: 'transparent',color: '#fff',
+                            '&:hover': {backgroundColor: '#272727',color: '#fff',}}}>
+                                <ListItemIcon><PlaylistPlayRoundedIcon sx={{color: '#fff'}}/></ListItemIcon>
+                                <ListItemText primary="Playlists do usuario" />
+                            </ListItemButton>
+                            <ListItemButton 
+                            sx={{borderRadius: '10px', backgroundColor: 'transparent',color: '#fff',
+                            '&:hover': {backgroundColor: '#272727',color: '#fff',}}}>
+                                <ListItemIcon><PlaylistPlayRoundedIcon sx={{color: '#fff'}}/></ListItemIcon>
+                                <ListItemText primary="Playlists do usuario" />
+                            </ListItemButton>
+                            <ListItemButton 
+                            sx={{borderRadius: '10px', backgroundColor: 'transparent',color: '#fff',
+                            '&:hover': {backgroundColor: '#272727',color: '#fff',}}}>
+                                <ListItemIcon><PlaylistPlayRoundedIcon sx={{color: '#fff'}}/></ListItemIcon>
+                                <ListItemText primary="Playlists do usuario" />
+                            </ListItemButton>
+                            <ListItemButton 
+                            sx={{borderRadius: '10px', backgroundColor: 'transparent',color: '#fff',
+                            '&:hover': {backgroundColor: '#272727',color: '#fff',}}}>
+                                <ListItemIcon><PlaylistPlayRoundedIcon sx={{color: '#fff'}}/></ListItemIcon>
+                                <ListItemText primary="Playlists do usuario" />
+                            </ListItemButton>
+                            <ListItemButton 
+                            sx={{borderRadius: '10px', backgroundColor: 'transparent',color: '#fff',
+                            '&:hover': {backgroundColor: '#272727',color: '#fff',}}}>
+                                <ListItemIcon><PlaylistPlayRoundedIcon sx={{color: '#fff'}}/></ListItemIcon>
+                                <ListItemText primary="Playlists do usuario" />
+                            </ListItemButton>
+                            <ListItemButton 
+                            sx={{borderRadius: '10px', backgroundColor: 'transparent',color: '#fff',
+                            '&:hover': {backgroundColor: '#272727',color: '#fff',}}}>
+                                <ListItemIcon><PlaylistPlayRoundedIcon sx={{color: '#fff'}}/></ListItemIcon>
+                                <ListItemText primary="Playlists do usuario" />
+                            </ListItemButton>
+
+                        </List>
+                    </Collapse>
+
+                    <ListItemButton onClick={handleClick}
+                    sx={{borderRadius: '10px', backgroundColor: 'transparent',color: '#fff',
+                    '&:hover': {backgroundColor: '#272727',color: '#fff',}}}>
+                        <ListItemIcon><InboxIcon sx={{color: '#fff'}}/></ListItemIcon>
+                        <ListItemText primary={open == true ? "Ver menos" : "Ver mais"} />
+                        {open ? <ExpandLess /> : <ExpandMore />}
+                    </ListItemButton>
+
                 </List>
             </nav>
             

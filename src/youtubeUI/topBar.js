@@ -22,7 +22,7 @@ function TopBar() {
     const [clickFocus, setClickFocus] = React.useState(false)
 
     return (
-    <Container disableGutters="true" maxWidth="string">
+    <Container disableGutters="true" maxWidth="string" sx={{}}>
         <Box sx={{ bgcolor: '#0f0f0f', height: '60px', width: '100%'}}>
             <Grid container direction="row" justifyContent="space-between" alignItems="center" style={{height: '100%'}}>
 
