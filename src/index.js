@@ -4,6 +4,7 @@ import './index.css';
 
 import App from './App';
 import YoutubeUI from './youtubeUI/youTubeUI';
+import ContentArea from './youtubeUI/contentArea';
 
 import reportWebVitals from './reportWebVitals';
 
